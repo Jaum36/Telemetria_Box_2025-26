@@ -64,15 +64,15 @@ const Velocimetro: React.FC<VelocimetroProps> = ({
 
     // Fundo do velocímetro
     ctx.beginPath();
-    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.arc(centerX, centerY, radius, Math.PI, 0); 
     ctx.strokeStyle = secondaryColor;
     ctx.lineWidth = 2;
     ctx.stroke();
 
     // Marcas principais
     const totalMajorMarks = 12;
-    const angleRange = Math.PI * 0.8;
-    const startAngle = Math.PI * 1.1;
+    const angleRange = Math.PI; 
+    const startAngle = Math.PI;
 
     for (let i = 0; i <= totalMajorMarks; i++) {
       const angle = startAngle + (angleRange / totalMajorMarks) * i;
