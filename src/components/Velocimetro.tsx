@@ -36,7 +36,7 @@ const Velocimetro: React.FC<VelocimetroProps> = ({
     const animateNeedle = () => {
       setCurrentValue((prev) => {
         const diff = value - prev;
-        if (Math.abs(diff) < 0.5) return value;
+        if (Math.abs(diff) < 0.01) return value;
         return prev + diff * 0.1;
       });
       animationFrameId = requestAnimationFrame(animateNeedle);
