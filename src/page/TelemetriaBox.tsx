@@ -141,15 +141,64 @@ export default function TelemetriaBox() {
           <div className="bg-black flex flex-col p-4 rounded-lg w-full">
             <h3 className="text-[#ffbb00] text-xl font-bold mb-4 text-center">TEMPERATuRA x TEMPo</h3>
             <div className="h-[500px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height="50%">
                 <LineChart
                   data={dadosTemperatura}
-                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                  margin={{ top: 5, right: 30, left: 20, bottom: 25 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                   <XAxis 
                     dataKey="tempo" 
-                    label={{ value: 'Tempo (s)', position: 'insideBottom', offset: -5, fill: 'white' }}
+                    label={{ value: 'Tempo (s)', position: 'insideBottom', offset: -12, fill: 'white' }}
+                    tick={{ fill: 'white' }}
+                    domain={[1, 10]}
+                    tickCount={10}
+                  />
+                  <YAxis
+                    label={{ value: 'Temperatura (°C)', angle: -90, position: 'insideLeft', offset: 10, fill: 'white' }}
+                    tick={{ fill: 'white' }}
+                    domain={[60, 90]}
+                    tickCount={7}
+                  />
+                  <Tooltip
+                    contentStyle={{ 
+                      backgroundColor: '#333', 
+                      border: '1px solid #ffbb00',
+                      color: 'white',
+                      borderRadius: '8px'
+                    }}
+                    itemStyle={{ color: '#ffbb00' }}
+                    labelStyle={{ color: 'white', fontWeight: 'bold' }}
+                    formatter={(value) => [`${value} °C`, 'Temperatura']}
+                    labelFormatter={(label) => `Tempo: ${label}s`}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="temperatura"
+                    stroke="#ffbb00"
+                    strokeWidth={3}
+                    dot={false}
+                    activeDot={false}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-1/3 flex flex-col items-center justify-center">
+          <div className="bg-black flex flex-col p-4 rounded-lg w-full">
+            <h3 className="text-[#ffbb00] text-xl font-bold mb-4 text-center">Combustível Esperado</h3>
+            <div className="h-[500px] w-full">
+              <ResponsiveContainer width="100%" height="50%" className=''>
+                <LineChart
+                  data={dadosTemperatura}
+                  margin={{ top: 25, right: 30, left: 20, bottom: 25 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                  <XAxis 
+                    dataKey="tempo" 
+                    label={{ value: 'Tempo (s)', position: 'insideBottom', offset: -12, fill: 'white', style: { marginTop: '10px' } }}
                     tick={{ fill: 'white' }}
                     domain={[1, 10]}
                     tickCount={10}
