@@ -135,7 +135,7 @@ export default function TelemetriaBox() {
           </div>
 
           <div className="bg-black flex flex-col rounded-lg items-center justify-center">
-            <h3 className="text-[#ffbb00] text-xl font-bold mb-4 text-center">CoMBuSTÃvEL</h3>
+            <h3 className="text-[#ffbb00] text-xl font-bold mb-4 text-center">CoMBuSTívEL</h3>
             <TanqueCombustivel
               nivel={combustivel}
               capacidade={50}
